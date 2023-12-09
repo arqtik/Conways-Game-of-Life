@@ -26,15 +26,13 @@ def IsCellAlive(x, y):
     if (x, y) in aliveCells:
         return 1
 
-def GetNeighbours(x, y):
+def GetFieldCount(x, y):
+    x = x - 1
+    y = y - 1
     count = 0
     for i in range(3):
-        nY = (y-1) + i
         for j in range(3):
-            nX = (x-1) + j
-            if i == 1 and j == 1: # Checking the called cell
-                continue
-            elif IsCellAlive(nX, nY):
+            if IsCellAlive(x + j, y + i):
                 count += 1
     return count
 
